@@ -40,7 +40,7 @@ module Plaintext
         text = +text
         text.gsub!(/\s+/m, ' ')
         text.strip!
-        text.unicode_normalize(:nfc).byteslice(0, max_plaintext_bytes)
+        text.force_encoding('UTF-8').unicode_normalize(:nfc).byteslice(0, max_plaintext_bytes)
       end
     end
 
